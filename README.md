@@ -3,6 +3,7 @@ Spring Batch app that reads file from blob storage, decrypts file, performs line
 
 - custom ItemReaders & ItemWriters along with StepExecutionListeners
 - Testcontainer + docker-compose to setup infra for JUnits
+- Trigger batch job using api + asyncJobLauncher
 - Spring Batch job testing using syncJobLauncher
 - devcontainer - Unix + Java + Docker to test custom encryption libs
 

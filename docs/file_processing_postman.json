@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "9af7e7f5-5c89-4638-ad21-81ed1e53b59f",
+		"name": "FileProcessing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Trigger Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fileType\": \"FIXED\",\n    \"sourceFilePath\": \"src/main/resources/data/input/fixed_length.txt\",\n    \"destinationFilePath\": \"test-data/fixed_length_processed.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/job",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blob",
+			"item": [
+				{
+					"name": "List Blobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PATH}}/blob/list/{{CONTAINER_NAME}}",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blob",
+								"list",
+								"{{CONTAINER_NAME}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File from Local",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fileType\": \"FIXED\",\n    \"sourceFilePath\": \"src/main/resources/data/input/fixed_length.txt\",\n    \"destinationFilePath\": \"test-data/fixed_length.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_PATH}}/blob/upload",
+							"host": [
+								"{{BASE_PATH}}"
+							],
+							"path": [
+								"blob",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_PATH",
+			"value": "http://localhost:8080",
+			"type": "default"
+		},
+		{
+			"key": "CONTAINER_NAME",
+			"value": "test-data",
+			"type": "default"
+		}
+	]
+}

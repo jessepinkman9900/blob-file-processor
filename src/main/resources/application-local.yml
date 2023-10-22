@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/job
+    username: postgres
+    password: pwd
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:/org/springframework/batch/core/schema-drop-postgresql.sql, classpath:/org/springframework/batch/core/schema-postgresql.sql
+
+  cloud:
+    azure:
+      storage:
+        blob:
+          endpoint: http://localhost:10000/devstoreaccount1
+          account-name: devstoreaccount1
+          account-key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+          client:
+            logging:
+              level: BODY_AND_HEADERS
+
+logging:
+  level:
+    root: info

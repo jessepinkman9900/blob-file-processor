@@ -1,0 +1,23 @@
+---
+version: "3.9"
+services:
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    hostname: azurite
+    restart: always
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+# uncomment: to see the blobs on local file system
+#    volumes:
+#      - ./azurite:/data
+
+  postgres:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=pwd
+      - POSTGRES_DB=job
+    ports:
+      - "5432:5432"

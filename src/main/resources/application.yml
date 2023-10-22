@@ -1,0 +1,40 @@
+# do not run batch job on startup
+spring:
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: never
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  cloud:
+    azure:
+      storage:
+        blob:
+          endpoint: ${AZURE_BLOB_STORAGE_ENDPOINT}
+          account-name: ${AZURE_BLOB_STORAGE_ACCOUNT_NAME}
+          account-key: ${AZURE_BLOB_STORAGE_ACCOUNT_KEY}
+          client:
+            logging:
+              level: BODY_AND_HEADERS
+          # todo: remove?
+          credential:
+            client-id: ${AZURE_BLOB_STORAGE_CLIENT_ID}
+            client-secret: ${AZURE_BLOB_STORAGE_CLIENT_SECRET}
+
+management:
+  health:
+    azure-keyvault-secret.enabled: true
+    azure-storage-blob.enabled: true
+
+# https://learn.microsoft.com/en-us/azure/developer/java/spring-framework/configuration-properties-azure-storage-blob

@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "local-FileProcessingApplication",
+            "request": "launch",
+            "mainClass": "com.demo.fileprocessing.FileProcessingApplication",
+            "projectName": "file-processing",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "local"
+            }
+        },
+        {
+            "type": "java",
+            "name": "env-FileProcessingApplication",
+            "request": "launch",
+            "mainClass": "com.demo.fileprocessing.FileProcessingApplication",
+            "projectName": "file-processing",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "local",
+                "DATABASE_URL": "${env:DATABASE_URL}",
+                "DATABASE_USERNAME": "${env:DATABASE_USERNAME}",
+                "DATABASE_PASSWORD": "${env:DATABASE_PASSWORD}",
+                "AZURE_BLOB_STORAGE_ENDPOINT": "${env:AZURE_BLOB_STORAGE_ENDPOINT}",
+                "AZURE_BLOB_STORAGE_ACCOUNT_NAME": "${env:AZURE_BLOB_STORAGE_ACCOUNT_NAME}",
+                "AZURE_BLOB_STORAGE_ACCOUNT_KEY": "${env:AZURE_BLOB_STORAGE_ACCOUNT_KEY}"
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Java & Docker Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2.7.0": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": true,
+      "mavenVersion": "3.9.4"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vmware.vscode-boot-dev-pack"
+      ]
+    }
+  },
+  "forwardPorts": [8080,5432,10000,10001,10002]
+}
